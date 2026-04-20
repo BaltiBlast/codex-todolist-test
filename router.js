@@ -1,9 +1,8 @@
 import express from 'express';
+import homeRouter from './routes/home/home.routes.js';
 
 const router = express.Router();
 
-router.get('/', (_req, res) => {
-  res.send('Bienvenue sur Tododex 🚀');
-});
+router.use(homeRouter);
 
 export default router;

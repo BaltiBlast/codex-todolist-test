@@ -2,6 +2,17 @@
 <html lang="fr">
   <%- include('../partials/head') %>
   <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><strong>Tododex</strong></li>
+        </ul>
+        <ul>
+          <li><a href="/auth/login">Connexion</a></li>
+          <li><a href="/auth/register">Inscription</a></li>
+        </ul>
+      </nav>
+    </header>
     <main class="container">
       <%- body %>
     </main>

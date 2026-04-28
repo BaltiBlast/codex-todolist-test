@@ -4,6 +4,7 @@ import expressEjsLayouts from 'express-ejs-layouts';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import router from './router.js';
+import connectDatabase from './configs/db.js';
 
 dotenv.config();
 
@@ -20,6 +21,12 @@ app.use(expressEjsLayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
-app.listen(port, () => {
-  console.log(`Tododex lancé sur http://localhost:${port}`);
-});
+const startServer = async () => {
+  await connectDatabase();
+
+  app.listen(port, () => {
+    console.log(`Tododex lancé sur http://localhost:${port}`);
+  });
+};
+
+startServer();
